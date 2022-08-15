@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CretaceousPark.Migrations
 {
-    public partial class Intial : Migration
+    public partial class SeedData : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,6 +21,18 @@ namespace CretaceousPark.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Animals", x => x.AnimalId);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Animals",
+                columns: new[] { "AnimalId", "Age", "Gender", "Name", "Species" },
+                values: new object[,]
+                {
+                    { 1, 7, "Female", "Matilda", "Woolly Mammoth" },
+                    { 2, 10, "Female", "Rexie", "Dinosaur" },
+                    { 3, 2, "Female", "Matilda", "Dinosaur" },
+                    { 4, 4, "Male", "Pip", "Shark" },
+                    { 5, 22, "Male", "Bartholomew", "Dinosaur" }
                 });
         }
 
